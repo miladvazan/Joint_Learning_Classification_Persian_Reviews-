@@ -165,7 +165,7 @@ def jacard(y_test, predictions):
 
     return accuracy
 ```
-# preprocess
+# پیش پردازش
 
 ```python
 import re
