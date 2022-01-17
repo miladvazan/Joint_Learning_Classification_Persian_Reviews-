@@ -165,3 +165,52 @@ def jacard(y_test, predictions):
 
     return accuracy
 ```
+# preprocess
+
+```python
+import re
+def preprocess_text(sentence):
+    # Removing multiple spaces
+    sentence = re.sub(r'@\S+', '', sentence)
+    sentence = re.sub(r'!\S+', '', sentence)
+    sentence = re.sub(r'؟\S+', '', sentence)
+    sentence = re.sub(r'[.]', ' ', sentence)
+    sentence = re.sub(r'[/]', '', sentence)
+    sentence = re.sub(r'[،]', ' ', sentence)
+    sentence = re.sub(r'[؛]', '', sentence)
+    sentence = sentence.split()
+    sentence =[word for word in sentence if word not in stop_words]
+    sentence = ' '.join(sentence)
+    return sentence
+def ReplacetwoMore(s):
+    pattern = re.compile(r"(.)\1{1,}", re.DOTALL) 
+    return pattern.sub(r"\1", s)
+```
+
+# شمارش تعداد کلمات منحصر به فرد
+
+```python
+import nltk
+nltk.download('punkt')
+from nltk.tokenize import word_tokenize
+from nltk import FreqDist
+all_words=' '.join(data)
+all_words=word_tokenize(all_words)
+dist=FreqDist(all_words)
+num_unique_word=len(dist)
+print ('number unique word:',num_unique_word)
+
+```
+
+# شمارش بزرگترین طول متن
+
+```python
+r_len=[]
+for text in data:
+    word=word_tokenize(text)
+    l=len(word)
+    r_len.append(l)   
+MAX_REVIEW_LEN=np.max(r_len)
+print('max len:',MAX_REVIEW_LEN)
+
+```
