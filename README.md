@@ -139,3 +139,29 @@ model.compile(loss='sparse_categorical_crossentropy',
               optimizer=optimizer,)
 model.summary()
 ```
+# jacard (multi label accuracy)
+
+```python
+def jacard(y_test, predictions):
+    accuracy = 0.0
+
+    for i in range(y_test.shape[0]):
+        intersection = 0.0
+        union = 0.0
+        for j in range(y_test.shape[1]):
+            if int(y_test[i,j]) == 1 or int(predictions[i,j]) == 1:
+                union += 1
+            if int(y_test[i,j]) == 1 and int(predictions[i,j]) == 1:
+                intersection += 1
+            if int(y_test[i,j]) == 2 or int(predictions[i,j]) == 2:
+                union += 1
+            if int(y_test[i,j]) == 2 and int(predictions[i,j]) == 2:
+                intersection += 1
+            
+        if union != 0:
+            accuracy = accuracy + float(intersection/union)
+
+    accuracy = float(accuracy/y_test.shape[0])
+
+    return accuracy
+```
