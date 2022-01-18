@@ -1,7 +1,7 @@
 # Joint_Learning_Classification_Persian_Reviews-
 Joint Learning for Aspect and Polarity Classification in Persian Reviews Using Multi-Task Deep Learning
 
-
+### یادگیری توام برای طبقه‌بندی ویژگی و قطبیت در نظرات فارسی با استفاده از یادگیری عمیق چندوظیفه‌ای"، اولین کنفرانس ملی تحول دیجیتال و سیستم های هوشمند، مجتمع آموزش عالی لارستان.
 
 # CNN
 
